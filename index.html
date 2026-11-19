@@ -1,42 +1,148 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>نظام الملف الطبي - رول بلاي</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام الرول بلاي الطبي الوهمي</title>
+
 <style>
-:root{--green:#087c55;--bg:#edf5f2;--text:#20312c;--line:#d6e3df}
+:root{
+  --green:#087c55;
+  --blue:#1d4ed8;
+  --bg:#eef5f3;
+  --text:#1f2d29;
+  --line:#d8e6e1;
+  --yellow:#fff4cc;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text)}
-header{background:#fff;border-bottom:4px solid var(--green);padding:14px 20px}
-header h1{font-size:20px;margin:0}
-header p{margin:6px 0 0;color:#668078;font-size:12px}
-main{max-width:950px;margin:auto;padding:20px}
-.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 4px 18px #0000000a}
-.tabs{display:flex;gap:8px;margin-bottom:16px}
-.tab{border:1px solid var(--line);background:#f7faf9;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer}
-.tab.active{background:var(--green);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+header{
+  background:#fff;
+  border-bottom:4px solid var(--green);
+  box-shadow:0 2px 12px #00000012;
+}
+.header-inner{
+  max-width:1100px;
+  min-height:80px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:54px;height:54px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--green);color:#fff;
+  font-size:24px;font-weight:bold;
+  border:4px solid #d9eee6;
+}
+.brand h1{font-size:20px;margin:0}
+.brand p{font-size:12px;margin:5px 0 0;color:#6e7d78}
+main{max-width:1100px;margin:25px auto;padding:0 20px}
+.notice{
+  background:var(--yellow);
+  border:1px solid #e2c766;
+  border-radius:10px;
+  padding:14px;
+  margin-bottom:16px;
+  line-height:1.9;
+  font-size:13px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:20px;
+  margin-bottom:16px;
+  box-shadow:0 5px 18px #0000000d;
+}
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tab{
+  border:1px solid var(--line);
+  background:#f7faf9;
+  border-radius:8px;
+  padding:11px 15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
 label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
-input,select,textarea{width:100%;border:1px solid #b8cbc5;border-radius:8px;padding:11px;font:inherit;background:#fff}
-textarea{min-height:90px;resize:vertical}
-.actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-button{border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:bold;cursor:pointer}
+input,select,textarea{
+  width:100%;
+  border:1px solid #bacdc6;
+  border-radius:8px;
+  padding:11px;
+  font:inherit;
+  background:#fff;
+}
+textarea{min-height:110px;resize:vertical}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+button{
+  border:0;border-radius:8px;
+  padding:11px 16px;
+  font:inherit;font-weight:bold;
+  cursor:pointer;
+}
 .primary{background:var(--green);color:#fff}
-.secondary{background:#edf3f1}
+.secondary{background:#edf3f1;color:#384943}
+.danger{background:#b42318;color:#fff}
 .hidden{display:none}
-.box{background:#edf8f3;border:1px solid #abd4c4;border-radius:9px;padding:14px;margin-top:14px}
-.info{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.item{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px}
+.box{
+  background:#edf8f3;
+  border:1px solid #abd4c4;
+  border-radius:9px;
+  padding:14px;
+  margin-top:14px;
+}
+.info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.item{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:10px;
+}
 .item small{display:block;color:#6d7c77;margin-bottom:5px}
 .item strong{direction:ltr;unicode-bidi:isolate}
 table{width:100%;border-collapse:collapse}
-th,td{border:1px solid var(--line);padding:8px;text-align:right;font-size:13px}
+th,td{
+  border:1px solid var(--line);
+  padding:8px;
+  text-align:right;
+  font-size:13px;
+  vertical-align:top;
+}
 th{background:#f3f8f6}
-.disclaimer{background:#fff4c9;border:1px solid #dfbd54;border-radius:10px;padding:14px;color:#554400;font-size:13px;line-height:1.9;text-align:center;margin-top:16px}
-@media(max-width:650px){
-  .grid,.info{grid-template-columns:1fr}
+.footer{
+  background:#fff;
+  border-top:1px solid var(--line);
+  margin-top:25px;
+  padding:18px;
+  text-align:center;
+  color:#5f706a;
+  font-size:12px;
+  line-height:1.9;
+}
+@media(max-width:700px){
+  .header-inner{align-items:flex-start;flex-direction:column}
   .tabs{flex-direction:column}
+  .grid,.info{grid-template-columns:1fr}
   table{display:block;overflow-x:auto}
 }
 </style>
@@ -44,8 +150,15 @@ th{background:#f3f8f6}
 
 <body>
 <header>
-  <h1>نظام الملف الطبي الافتراضي</h1>
-  <p>نظام ألعاب وتسلية للرول بلاي</p>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">ص</div>
+      <div>
+        <h1>النظام الطبي الافتراضي للرول بلاي</h1>
+        <p>نظام وهمي للتسلية واللعب فقط</p>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main>
@@ -60,38 +173,38 @@ th{background:#f3f8f6}
       <form id="openForm">
         <div class="grid">
           <div>
-            <label>الاسم بالكامل</label>
+            <label>١ - الاسم بالكامل</label>
             <input id="fullName" required autocomplete="off">
           </div>
 
           <div>
-            <label>العمر</label>
+            <label>٢ - العمر</label>
             <input id="age" type="number" min="1" max="120" required>
           </div>
 
           <div>
-            <label>اسمك في Roblox</label>
+            <label>٣ - اسم حساب Roblox</label>
             <input id="roblox" required autocomplete="off">
           </div>
 
           <div>
-            <label>الوظيفة</label>
+            <label>٤ - الوظيفة</label>
             <input id="job" required>
           </div>
 
           <div>
-            <label>الرتبة الوظيفية</label>
+            <label>٥ - الرتبة الوظيفية</label>
             <input id="rank" required>
           </div>
 
           <div>
-            <label>سبب فتح الملف</label>
+            <label>٦ - سبب فتح الملف</label>
             <textarea id="reason" required></textarea>
           </div>
         </div>
 
         <div class="actions">
-          <button type="submit" class="primary">فتح الملف والحصول على الرقم</button>
+          <button type="submit" class="primary">الحصول على رمز الملف</button>
           <button type="reset" class="secondary">مسح</button>
         </div>
       </form>
@@ -102,13 +215,8 @@ th{background:#f3f8f6}
     <section id="check" class="hidden">
       <div class="grid">
         <div>
-          <label>رقم الملف الطبي</label>
-          <input id="fileLookup" inputmode="numeric" maxlength="12">
-        </div>
-
-        <div>
-          <label>رمز الكشف الخاص بك</label>
-          <input id="recordCode" autocomplete="off">
+          <label>رمز الملف الطبي</label>
+          <input id="fileCode" placeholder="مثال: MED-123456" autocomplete="off">
         </div>
       </div>
 
@@ -134,12 +242,12 @@ th{background:#f3f8f6}
         </div>
 
         <div class="actions">
-          <button type="button" class="primary" onclick="loginAdmin()">دخول</button>
+          <button type="button" class="primary" onclick="loginAdmin()">دخول لوحة الإدارة</button>
         </div>
       </div>
 
       <div id="adminPanel" class="hidden">
-        <h3>لوحة الإدارة - تقارير الكشف الطبي</h3>
+        <h3>لوحة الإدارة - تقارير الكشف</h3>
 
         <div class="actions">
           <button type="button" class="primary" onclick="downloadReports()">تنزيل التقارير CSV</button>
@@ -151,46 +259,53 @@ th{background:#f3f8f6}
     </section>
   </div>
 
-  <div class="disclaimer">
-    هذا الموقع أو النموذج الإلكتروني لا يمت للعالم الواقعي أو المملكة العربية السعودية وحكومتها أو أي جهة رسمية بِصلة، وإنما هو يحاكي واقع إفتراضي من وحي الخيال وجميع محتوياته لأغراض اللعب والترفيه فقط، ونُخلي مسؤوليتنا بشكل تام في حال إستغلال هذا الموقع لأغراض إحتيالية، تشويهية، إنتحالية، عرضية، أو إستخدامه خارج إطار اللعب والمتعة والترفيه.
+  <div class="notice">
+    هذا الموقع أو النموذج الإلكتروني لا يمت للعالم الواقعي أو المملكة العربية السعودية وحكومتها أو أي جهة رسمية بِصلة،
+    وإنما هو يحاكي واقع إفتراضي من وحي الخيال وجميع محتوياته لأغراض اللعب والترفيه فقط،
+    ونُخلي مسؤوليتنا بشكل تام في حال إستغلال هذا الموقع لأغراض إحتيالية،
+    تشويهية، إنتحالية، عرضية، أو إستخدامه خارج إطار اللعب والمتعة والترفيه.
   </div>
 </main>
+
+<footer class="footer">
+  نظام محاكاة ترفيهية — لا يمثل جهة صحية أو حكومية حقيقية
+</footer>
 
 <script>
 const ADMIN_PASSWORD = "Abo3ks3305";
 
-let records = JSON.parse(sessionStorage.getItem("rpMedicalReports") || "[]");
+let records = JSON.parse(sessionStorage.getItem("rpMedicalCodes") || "[]");
 
-function showTab(id) {
-  document.querySelectorAll(".tab").forEach((tab, index) => {
+function showTab(id){
+  document.querySelectorAll(".tab").forEach((tab,index)=>{
     tab.classList.toggle("active",
-      (id === "open" && index === 0) ||
-      (id === "check" && index === 1) ||
-      (id === "admin" && index === 2)
+      (id==="open" && index===0) ||
+      (id==="check" && index===1) ||
+      (id==="admin" && index===2)
     );
   });
 
-  ["open","check","admin"].forEach(section => {
-    document.getElementById(section).classList.toggle("hidden", section !== id);
+  ["open","check","admin"].forEach(section=>{
+    document.getElementById(section).classList.toggle("hidden",section!==id);
   });
 
-  if (id === "admin") renderAdmin();
+  if(id==="admin") renderAdmin();
 }
 
-function randomDigits(length) {
-  let output = "";
-  for (let i = 0; i < length; i++) {
-    output += Math.floor(Math.random() * 10);
+function randomDigits(length){
+  let result="";
+  for(let i=0;i<length;i++){
+    result+=Math.floor(Math.random()*10);
   }
-  return output;
+  return result;
 }
 
-function saveRecords() {
-  sessionStorage.setItem("rpMedicalReports", JSON.stringify(records));
+function saveRecords(){
+  sessionStorage.setItem("rpMedicalCodes",JSON.stringify(records));
 }
 
-function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, character => ({
+function escapeHtml(value){
+  return String(value).replace(/[&<>"']/g,character=>({
     "&":"&amp;",
     "<":"&lt;",
     ">":"&gt;",
@@ -199,146 +314,125 @@ function escapeHtml(value) {
   })[character]);
 }
 
-document.getElementById("openForm").addEventListener("submit", event => {
+document.getElementById("openForm").addEventListener("submit",event=>{
   event.preventDefault();
 
-  const record = {
-    id: randomDigits(12),
-    code: "MED-" + randomDigits(6),
-    name: document.getElementById("fullName").value.trim(),
-    age: document.getElementById("age").value,
-    roblox: document.getElementById("roblox").value.trim(),
-    job: document.getElementById("job").value.trim(),
-    rank: document.getElementById("rank").value.trim(),
-    reason: document.getElementById("reason").value.trim(),
-    status: "قيد الانتظار",
-    result: "",
-    reportDate: "",
-    doctor: "",
-    medicalNotes: ""
+  let code;
+  do{
+    code="MED-"+randomDigits(6);
+  }while(records.some(record=>record.code===code));
+
+  const record={
+    code,
+    name:document.getElementById("fullName").value.trim(),
+    age:document.getElementById("age").value,
+    roblox:document.getElementById("roblox").value.trim(),
+    job:document.getElementById("job").value.trim(),
+    rank:document.getElementById("rank").value.trim(),
+    reason:document.getElementById("reason").value.trim(),
+    status:"قيد الانتظار",
+    reportDate:"",
+    patientStatus:"",
+    published:false
   };
 
   records.push(record);
   saveRecords();
 
-  document.getElementById("openResult").innerHTML = `
+  document.getElementById("openResult").innerHTML=`
     <div class="box">
-      <h3>تم فتح الملف الطبي بنجاح</h3>
+      <h3>تم إنشاء رمز الملف بنجاح</h3>
       <div class="info">
         <div class="item">
-          <small>رقم الملف الطبي</small>
-          <strong>${record.id}</strong>
-        </div>
-
-        <div class="item">
-          <small>رمز الكشف</small>
+          <small>رمز الملف الطبي للحجز والاستعلام</small>
           <strong>${record.code}</strong>
         </div>
 
         <div class="item">
-          <small>حالة الكشف</small>
+          <small>حالة الطلب</small>
           <strong>${record.status}</strong>
         </div>
       </div>
-      <p>أرسل رقم الملف ورمز الكشف للإدارة فقط عند الحاجة، وحفظهم للنظر في نتيجة الكشف لاحقًا.</p>
+
+      <p>احتفظ بالرمز واستخدمه للحجز والاستعلام عن الكشف الطبي لاحقًا.</p>
     </div>
   `;
 
-  document.getElementById("fileLookup").value = record.id;
-  document.getElementById("recordCode").value = record.code;
+  document.getElementById("fileCode").value=record.code;
   event.target.reset();
 });
 
-function lookupReport() {
-  const id = document.getElementById("fileLookup").value.trim();
-  const code = document.getElementById("recordCode").value.trim();
-  const record = records.find(item => item.id === id && item.code === code);
-  const area = document.getElementById("reportResult");
+function lookupReport(){
+  const code=document.getElementById("fileCode").value.trim();
+  const record=records.find(item=>item.code===code);
+  const area=document.getElementById("reportResult");
 
-  if (!record) {
-    area.innerHTML = `
+  if(!record){
+    area.innerHTML=`
       <div class="box">
-        رقم الملف أو رمز الكشف غير صحيح.
+        رمز الملف غير صحيح أو غير موجود.
       </div>
     `;
     return;
   }
 
-  if (record.status !== "تم إصدار الكشف") {
-    area.innerHTML = `
+  if(!record.published){
+    area.innerHTML=`
       <div class="box">
         <h3>الكشف قيد التحضير</h3>
-        <p>لا توجد نتيجة كشف منشورة لهذا الملف حتى الآن.</p>
+        <p>لم يتم إرسال تقرير الكشف لهذا الرمز بعد.</p>
       </div>
     `;
     return;
   }
 
-  area.innerHTML = `
+  area.innerHTML=`
     <div class="box">
-      <h3>تقرير الكشف الطبي</h3>
+      <h3>نتيجة الكشف الطبي</h3>
 
       <div class="info">
         <div class="item">
-          <small>رقم الملف</small>
-          <strong>${record.id}</strong>
+          <small>رمز الملف</small>
+          <strong>${escapeHtml(record.code)}</strong>
         </div>
 
         <div class="item">
           <small>تاريخ الكشف</small>
-          <strong>${escapeHtml(record.reportDate)}</strong>
+          <strong>${escapeHtml(record.reportDate || "غير محدد")}</strong>
         </div>
 
         <div class="item">
-          <small>النتيجة</small>
-          <strong>${escapeHtml(record.result)}</strong>
-        </div>
-
-        <div class="item">
-          <small>الممرض التجريبي</small>
-          <strong>${escapeHtml(record.doctor)}</strong>
-        </div>
-
-        <div class="item">
-          <small>الاسم</small>
-          <strong>${escapeHtml(record.name)}</strong>
-        </div>
-
-        <div class="item">
-          <small>الوظيفة والرتبة</small>
-          <strong>${escapeHtml(record.job)} - ${escapeHtml(record.rank)}</strong>
+          <small>حالة المريض</small>
+          <strong>${escapeHtml(record.patientStatus)}</strong>
         </div>
       </div>
-
-      <p><b>ملاحظات الكشف:</b></p>
-      <p>${escapeHtml(record.medicalNotes) || "لا توجد ملاحظات"}</p>
     </div>
   `;
 }
 
-function loginAdmin() {
-  const name = document.getElementById("adminName").value.trim();
-  const password = document.getElementById("adminPassword").value;
+function loginAdmin(){
+  const name=document.getElementById("adminName").value.trim();
+  const password=document.getElementById("adminPassword").value;
 
-  if (!name || password !== ADMIN_PASSWORD) {
-    alert("اسم الإداري أو رمز الدخول غير صحيح");
+  if(!name || password!==ADMIN_PASSWORD){
+    alert("اسم الإداري أو رمز الإدارة غير صحيح");
     return;
   }
 
-  sessionStorage.setItem("rpAdminLogged", "1");
-  document.getElementById("adminPassword").value = "";
+  sessionStorage.setItem("rpAdminLogged","1");
+  document.getElementById("adminPassword").value="";
   renderAdmin();
 }
 
-function logoutAdmin() {
+function logoutAdmin(){
   sessionStorage.removeItem("rpAdminLogged");
   document.getElementById("adminLogin").classList.remove("hidden");
   document.getElementById("adminPanel").classList.add("hidden");
-  document.getElementById("adminName").value = "";
+  document.getElementById("adminName").value="";
 }
 
-function renderAdmin() {
-  if (sessionStorage.getItem("rpAdminLogged") !== "1") {
+function renderAdmin(){
+  if(sessionStorage.getItem("rpAdminLogged")!== "1"){
     document.getElementById("adminLogin").classList.remove("hidden");
     document.getElementById("adminPanel").classList.add("hidden");
     return;
@@ -347,103 +441,99 @@ function renderAdmin() {
   document.getElementById("adminLogin").classList.add("hidden");
   document.getElementById("adminPanel").classList.remove("hidden");
 
-  let html = `
+  let html=`
     <table>
       <thead>
         <tr>
-          <th>رقم الملف</th>
-          <th>الرمز</th>
+          <th>رمز الملف</th>
           <th>الاسم</th>
           <th>العمر</th>
-          <th>الوظيفة والرتبة</th>
+          <th>Roblox</th>
+          <th>الوظيفة</th>
+          <th>الرتبة</th>
+          <th>سبب فتح الملف</th>
           <th>تاريخ الكشف</th>
-          <th>النتيجة</th>
-          <th>اسم الممرض</th>
-          <th>ملاحظات</th>
-          <th>حالة الكشف</th>
+          <th>حالة المريض</th>
+          <th>الإرسال</th>
         </tr>
       </thead>
       <tbody>
   `;
 
-  records.forEach((record, index) => {
-    html += `
+  records.forEach((record,index)=>{
+    html+=`
       <tr>
-        <td>${record.id}</td>
         <td>${record.code}</td>
         <td>${escapeHtml(record.name)}</td>
         <td>${escapeHtml(record.age)}</td>
-        <td>${escapeHtml(record.job)} - ${escapeHtml(record.rank)}</td>
+        <td>${escapeHtml(record.roblox)}</td>
+        <td>${escapeHtml(record.job)}</td>
+        <td>${escapeHtml(record.rank)}</td>
+        <td>${escapeHtml(record.reason)}</td>
 
         <td>
           <input
             type="date"
             value="${escapeHtml(record.reportDate)}"
-            onchange="updateRecord(${index}, 'reportDate', this.value)"
-          >
-        </td>
-
-        <td>
-          <select onchange="updateRecord(${index}, 'result', this.value)">
-            <option value="">اختر النتيجة</option>
-            <option ${record.result === "لائق" ? "selected" : ""}>لائق</option>
-            <option ${record.result === "غير لائق" ? "selected" : ""}>غير لائق</option>
-            <option ${record.result === "يحتاج إعادة فحص" ? "selected" : ""}>يحتاج إعادة فحص</option>
-          </select>
-        </td>
-
-        <td>
-          <input
-            value="${escapeHtml(record.doctor)}"
-            onchange="updateRecord(${index}, 'doctor', this.value)"
+            onchange="updateRecord(${index},'reportDate',this.value)"
           >
         </td>
 
         <td>
           <textarea
-            onchange="updateRecord(${index}, 'medicalNotes', this.value)"
-          >${escapeHtml(record.medicalNotes)}</textarea>
+            placeholder="اكتب حالة المريض ووصفها..."
+            onchange="updateRecord(${index},'patientStatus',this.value)"
+          >${escapeHtml(record.patientStatus)}</textarea>
         </td>
 
         <td>
-          <select onchange="publishStatus(${index}, this.value)">
-            <option value="قيد الانتظار" ${record.status === "قيد الانتظار" ? "selected" : ""}>قيد الانتظار</option>
-            <option value="تم إصدار الكشف" ${record.status === "تم إصدار الكشف" ? "selected" : ""}>إرسال الكشف</option>
-          </select>
+          <button type="button" class="primary" onclick="publishReport(${index})">
+            إرسال الكشف
+          </button>
         </td>
       </tr>
     `;
   });
 
-  html += `</tbody></table>`;
-  document.getElementById("adminRecords").innerHTML = html;
+  html+=`
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("adminRecords").innerHTML=html;
 }
 
-function updateRecord(index, key, value) {
-  records[index][key] = value;
+function updateRecord(index,key,value){
+  records[index][key]=value;
   saveRecords();
 }
 
-function publishStatus(index, status) {
-  records[index].status = status;
+function publishReport(index){
+  if(!records[index].patientStatus.trim()){
+    alert("اكتب حالة المريض قبل إرسال الكشف");
+    return;
+  }
+
+  records[index].published=true;
+  records[index].status="تم إرسال الكشف";
   saveRecords();
   renderAdmin();
+  alert("تم إرسال الكشف للرمز: "+records[index].code);
 }
 
-function downloadReports() {
-  if (sessionStorage.getItem("rpAdminLogged") !== "1") {
-    alert("يجب تسجيل دخول الإدارة أولًا");
+function downloadReports(){
+  if(sessionStorage.getItem("rpAdminLogged")!== "1"){
+    alert("يجب تسجيل الدخول أولًا");
     return;
   }
 
-  if (!records.length) {
-    alert("لا توجد ملفات للتنزيل");
+  if(!records.length){
+    alert("لا توجد سجلات");
     return;
   }
 
-  const columns = [
-    ["رقم الملف","id"],
-    ["رمز الكشف","code"],
+  const columns=[
+    ["رمز الملف","code"],
     ["الاسم","name"],
     ["العمر","age"],
     ["Roblox","roblox"],
@@ -451,37 +541,34 @@ function downloadReports() {
     ["الرتبة","rank"],
     ["سبب فتح الملف","reason"],
     ["تاريخ الكشف","reportDate"],
-    ["النتيجة","result"],
-    ["الممرض","doctor"],
-    ["الملاحظات","medicalNotes"],
-    ["الحالة","status"]
+    ["حالة المريض","patientStatus"],
+    ["حالة التقرير","status"]
   ];
 
-  function csvCell(value) {
-    let text = String(value ?? "");
-    if (/^[=+\-@]/.test(text)) text = "'" + text;
-    return '"' + text.replace(/"/g,'""') + '"';
+  function csvCell(value){
+    let text=String(value??"");
+    if(/^[=+\-@]/.test(text)) text="'"+text;
+    return '"'+text.replace(/"/g,'""')+'"';
   }
 
-  const rows = [
-    columns.map(column => csvCell(column[0])).join(","),
-    ...records.map(record =>
-      columns.map(column => csvCell(record[column[1]])).join(",")
+  const rows=[
+    columns.map(column=>csvCell(column[0])).join(","),
+    ...records.map(record=>
+      columns.map(column=>csvCell(record[column[1]])).join(",")
     )
   ];
 
-  const csv = "\uFEFF" + rows.join("\r\n");
-  const blob = new Blob([csv],{type:"text/csv;charset=utf-8"});
-  const url = URL.createObjectURL(blob);
+  const csv="\uFEFF"+rows.join("\r\n");
+  const blob=new Blob([csv],{type:"text/csv;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement("a");
 
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "تقارير-الكشف-الطبي.csv";
+  link.href=url;
+  link.download="تقارير-الكشف-الطبي.csv";
   link.click();
 
   URL.revokeObjectURL(url);
 }
 </script>
-
 </body>
 </html>
