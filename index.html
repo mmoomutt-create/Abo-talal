@@ -1,355 +1,470 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>بوابة ملفي الصحي</title>
-  <style>
-    :root {
-      --green: #087c55;
-      --green-2: #0b9b69;
-      --blue: #1c5d99;
-      --bg: #eef5f3;
-      --border: #d7e4e0;
-      --text: #1f2d29;
-      --danger: #b42318;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-    }
-    header {
-      background: white;
-      border-bottom: 4px solid var(--green);
-      box-shadow: 0 2px 10px #00000012;
-    }
-    .topbar {
-      max-width: 1050px;
-      margin: auto;
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 10px 20px;
-    }
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .seal {
-      width: 58px; height: 58px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: var(--green); color: white;
-      border: 4px solid #d9eee6;
-      font-size: 25px; font-weight: bold;
-    }
-    .brand h1 { font-size: 20px; margin: 0; }
-    .brand p { margin: 4px 0 0; color: #64736e; font-size: 12px; }
-    .disclaimer {
-      background: #fff4cc;
-      color: #6b5200;
-      border: 1px solid #ead47d;
-      border-radius: 8px;
-      padding: 8px 10px;
-      font-size: 12px;
-      max-width: 330px;
-    }
-    main {
-      max-width: 1050px;
-      margin: 28px auto;
-      padding: 0 20px;
-    }
-    .hero {
-      background: linear-gradient(120deg, #087c55, #1c7d7a);
-      color: white;
-      border-radius: 14px;
-      padding: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-    .hero h2 { margin: 0 0 8px; }
-    .hero p { margin: 0; opacity: .95; }
-    .card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px;
-      box-shadow: 0 5px 20px #31594d10;
-      margin-top: 18px;
-    }
-    .tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-    .tab {
-      border: 1px solid var(--border);
-      background: #f7faf9;
-      border-radius: 8px;
-      padding: 10px 14px;
-      cursor: pointer;
-      color: var(--text);
-      font-weight: bold;
-    }
-    .tab.active {
-      background: var(--green);
-      color: white;
-      border-color: var(--green);
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-    label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 7px; }
-    input, select {
-      width: 100%;
-      border: 1px solid #bdcec8;
-      border-radius: 8px;
-      padding: 11px;
-      font: inherit;
-      background: white;
-    }
-    input:focus, select:focus { outline: 2px solid #aadaca; border-color: var(--green); }
-    .actions { display: flex; gap: 10px; margin-top: 16px; }
-    button {
-      border: 0;
-      border-radius: 8px;
-      padding: 11px 18px;
-      font: inherit;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .primary { background: var(--green); color: white; }
-    .secondary { background: #edf3f1; color: #42534e; }
-    .hidden { display: none; }
-    .success {
-      margin-top: 16px;
-      border-radius: 10px;
-      background: #eaf7f1;
-      border: 1px solid #abd7c5;
-      padding: 16px;
-    }
-    .success h3 { margin: 0 0 10px; color: var(--green); }
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .info {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px;
-    }
-    .info small { display: block; color: #6c7a76; margin-bottom: 5px; }
-    .info strong { direction: ltr; unicode-bidi: isolate; }
-    .receipt {
-      margin-top: 12px;
-      border: 1px dashed #91aaa1;
-      background: #fbfdfc;
-      border-radius: 8px;
-      padding: 12px;
-    }
-    footer {
-      text-align: center;
-      color: #73817d;
-      font-size: 12px;
-      padding: 20px;
-    }
-    @media (max-width: 700px) {
-      .topbar, .hero { align-items: flex-start; flex-direction: column; }
-      .grid, .info-grid { grid-template-columns: 1fr; }
-      .tabs { flex-direction: column; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نظام الملف الطبي - رول بلاي</title>
+<style>
+:root{--g:#087c55;--b:#edf5f2;--d:#20312c;--line:#d6e3df}
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--b);color:var(--d)}
+header{background:#fff;border-bottom:4px solid var(--g);padding:14px 20px}
+header h1{font-size:19px;margin:0}
+header p{margin:6px 0 0;color:#668078;font-size:12px}
+main{max-width:950px;margin:auto;padding:20px}
+.notice{background:#fff4c9;border:1px solid #e3cb70;border-radius:10px;padding:11px;margin-bottom:16px;font-size:13px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 4px 18px #0000000a}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#f7faf9;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer}
+.tab.active{background:var(--g);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
+input,select,textarea{width:100%;border:1px solid #b8cbc5;border-radius:8px;padding:11px;font:inherit;background:#fff}
+textarea{min-height:90px;resize:vertical}
+.actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+button{border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:bold;cursor:pointer}
+.primary{background:var(--g);color:#fff}
+.secondary{background:#edf3f1}
+.hidden{display:none}
+.box{background:#edf8f3;border:1px solid #abd4c4;border-radius:9px;padding:14px;margin-top:14px}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.item{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px}
+.item small{display:block;color:#6d7c77;margin-bottom:5px}
+.item strong{direction:ltr;unicode-bidi:isolate}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid var(--line);padding:8px;text-align:right;font-size:13px}
+th{background:#f3f8f6}
+@media(max-width:650px){
+  .grid,.info{grid-template-columns:1fr}
+  .tabs{flex-direction:column}
+  table{display:block;overflow-x:auto}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="topbar">
-      <div class="brand">
-        <div class="seal">ص</div>
-        <div>
-          <h1>بوابة الملف الصحي الترفيهية</h1>
-          <p>نظام محاكاة للرول بلاي — غير رسمي ولا يمثل جهة حكومية</p>
-        </div>
-      </div>
-      <div class="disclaimer">
-        تنبيه: هذا الموقع وهمي بالكامل لأغراض الترفيه فقط، ولا يجمع أو يخزن أي بيانات حقيقية.
-      </div>
+
+<header>
+  <h1>نظام الملف الطبي - المحاكاة الترفيهية</h1>
+  <p>الموقع وهمي بالكامل ولا يمثل وزارة أو جهة صحية حقيقية</p>
+</header>
+
+<main>
+  <div class="notice">
+    تنبيه: جميع البيانات والأرقام والرموز وهمية ويجب استخدامها للرول بلاي فقط.
+  </div>
+
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('open')">فتح ملف طبي</button>
+      <button class="tab" onclick="showTab('check')">ملفي للكشف والحجز</button>
+      <button class="tab" onclick="showTab('admin')">إدارة تجريبية</button>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <h2>الخدمات الصحية</h2>
-        <p>إنشاء ملف طبي تجريبي وطلب كشف طبي وهمي للطرد/اللعبة.</p>
-      </div>
-      <div style="text-align:center">
-        <div style="font-size:28px">✚</div>
-        <small>نسخة تجريبية</small>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="tabs">
-        <button class="tab active" type="button" onclick="showSection('create')">إنشاء ملف طبي</button>
-        <button class="tab" type="button" onclick="showSection('check')">الكشف الطبي</button>
-      </div>
-
-      <form id="createForm">
+    <section id="open">
+      <form id="openForm">
         <div class="grid">
           <div>
-            <label for="name">الاسم بالكامل للتجربة</label>
-            <input id="name" required placeholder="اسم وهمي فقط" autocomplete="off">
+            <label>١ - الاسم بالكامل</label>
+            <input id="fullName" required autocomplete="off">
           </div>
+
           <div>
-            <label for="nationalId">الهوية الوطنية التجريبية</label>
-            <input id="nationalId" required inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 أرقام وهمية">
+            <label>٢ - العمر</label>
+            <input id="age" type="number" min="1" max="120" required>
           </div>
+
           <div>
-            <label for="birthDate">تاريخ الميلاد التجريبي</label>
-            <input id="birthDate" type="date" required>
+            <label>٣ - اسمك في Roblox</label>
+            <input id="roblox" required autocomplete="off">
           </div>
+
           <div>
-            <label for="gender">الجنس</label>
-            <select id="gender" required>
-              <option value="">اختر</option>
-              <option>ذكر</option>
-              <option>أنثى</option>
-            </select>
+            <label>٤ - الوظيفة</label>
+            <input id="job" required>
           </div>
+
           <div>
-            <label for="phone">رقم الجوال التجريبي</label>
-            <input id="phone" inputmode="numeric" maxlength="10" pattern="05[0-9]{8}" placeholder="05XXXXXXXX">
+            <label>٥ - الرتبة الوظيفية</label>
+            <input id="rank" required>
           </div>
+
           <div>
-            <label for="blood">فصيلة الدم</label>
-            <select id="blood" required>
-              <option value="">اختر</option>
-              <option>A+</option><option>A-</option>
-              <option>B+</option><option>B-</option>
-              <option>O+</option><option>O-</option>
-              <option>AB+</option><option>AB-</option>
-              <option>غير معروف</option>
-            </select>
+            <label>٦ - سبب فتح الملف</label>
+            <textarea id="reason" required></textarea>
           </div>
         </div>
+
         <div class="actions">
-          <button class="primary" type="submit">إنشاء ملف تجريبي</button>
-          <button class="secondary" type="reset">مسح</button>
+          <button type="submit" class="primary">تقديم طلب فتح الملف</button>
+          <button type="reset" class="secondary">مسح</button>
         </div>
       </form>
+    </section>
 
-      <form id="checkForm" class="hidden">
+    <section id="check" class="hidden">
+      <div class="grid">
+        <div>
+          <label>رقم الملف الطبي</label>
+          <input id="fileLookup" inputmode="numeric">
+        </div>
+
+        <div>
+          <label>رمز الملف الخاص بك</label>
+          <input id="recordCode" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="primary" onclick="lookupFile()">عرض ملفي للحجز</button>
+      </div>
+
+      <div id="lookupResult"></div>
+    </section>
+
+    <section id="admin" class="hidden">
+      <div id="adminLogin">
         <div class="grid">
           <div>
-            <label for="searchFile">رقم الملف الطبي</label>
-            <input id="searchFile" inputmode="numeric" maxlength="12" placeholder="مثال: 100234567890">
+            <label>اسم الإداري التجريبي</label>
+            <input id="adminName">
           </div>
+
           <div>
-            <label for="acceptance">رقم القبول</label>
-            <input id="acceptance" inputmode="numeric" maxlength="12" placeholder="مثال: 202600123456">
-          </div>
-          <div>
-            <label for="examType">نوع الكشف</label>
-            <select id="examType">
-              <option>كشف عام</option>
-              <option>كشف دوري</option>
-              <option>التأهيل المهني</option>
-              <option>كشف السفر</option>
-            </select>
-          </div>
-          <div>
-            <label for="facility">المرفق التجريبي</label>
-            <select id="facility">
-              <option>المركز الصحي الافتراضي</option>
-              <option>مستشفى رول بلاي المركزي</option>
-              <option>عيادة النجمة</option>
-            </select>
+            <label>الرمز الإداري التجريبي</label>
+            <input id="adminPassword" type="password">
           </div>
         </div>
+
         <div class="actions">
-          <button class="primary" type="submit">عرض النتيجة</button>
+          <button type="button" class="primary" onclick="loginAdmin()">دخول الإدارة</button>
         </div>
-      </form>
+      </div>
 
-      <div id="result" class="success hidden" aria-live="polite"></div>
+      <div id="adminPanel" class="hidden">
+        <h3>لوحة الإدارة التجريبية</h3>
+
+        <div class="actions">
+          <button type="button" class="primary" onclick="downloadReports()">تنزيل تقارير الكشف</button>
+          <button type="button" class="secondary" onclick="logoutAdmin()">تسجيل خروج</button>
+        </div>
+
+        <div id="adminRecords"></div>
+      </div>
     </section>
-  </main>
+  </div>
+</main>
 
-  <footer>
-    نظام محاكاة ترفيهية — جميع الأرقام والنتائج مولدة عشوائيًا ولا تعكس معلومات صحية حقيقية
-  </footer>
+<script>
+const ADMIN_PASSWORD = "Abo3ks3305";
 
-  <script>
-    function showSection(section) {
-      document.querySelectorAll('.tab').forEach((tab, i) => {
-        tab.classList.toggle('active',
-          (section === 'create' && i === 0) || (section === 'check' && i === 1));
-      });
-      document.getElementById('createForm').classList.toggle('hidden', section !== 'create');
-      document.getElementById('checkForm').classList.toggle('hidden', section !== 'check');
-      document.getElementById('result').classList.add('hidden');
-    }
+let records = JSON.parse(sessionStorage.getItem("rp_medical_records") || "[]");
 
-    function randomDigits(length) {
-      let result = '';
-      for (let i = 0; i < length; i++) result += Math.floor(Math.random() * 10);
-      return result;
-    }
+function showTab(id) {
+  document.querySelectorAll(".tab").forEach((tab, index) => {
+    tab.classList.toggle("active",
+      (id === "open" && index === 0) ||
+      (id === "check" && index === 1) ||
+      (id === "admin" && index === 2)
+    );
+  });
 
-    document.getElementById('createForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const fileNumber = '1' + randomDigits(11);
-      const acceptance = '2026' + randomDigits(8);
+  ["open", "check", "admin"].forEach(section => {
+    document.getElementById(section).classList.toggle("hidden", section !== id);
+  });
 
-      document.getElementById('result').innerHTML = `
-        <h3>تم إنشاء ملف تجريبي بنجاح</h3>
-        <div class="info-grid">
-          <div class="info"><small>اسم الملف التجريبي</small><strong>${escapeHtml(name)}</strong></div>
-          <div class="info"><small>رقم الملف الطبي</small><strong>${fileNumber}</strong></div>
-          <div class="info"><small>رقم القبول</small><strong>${acceptance}</strong></div>
+  if (id === "admin") {
+    renderAdmin();
+  }
+}
+
+function randomDigits(length) {
+  let result = "";
+
+  for (let i = 0; i < length; i++) {
+    result += Math.floor(Math.random() * 10);
+  }
+
+  return result;
+}
+
+function saveRecords() {
+  sessionStorage.setItem("rp_medical_records", JSON.stringify(records));
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[character]);
+}
+
+document.getElementById("openForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const record = {
+    id: randomDigits(12),
+    code: "RP-" + randomDigits(6),
+    name: document.getElementById("fullName").value.trim(),
+    age: document.getElementById("age").value,
+    roblox: document.getElementById("roblox").value.trim(),
+    job: document.getElementById("job").value.trim(),
+    rank: document.getElementById("rank").value.trim(),
+    reason: document.getElementById("reason").value.trim(),
+    status: "ملف تجريبي مفتوح",
+    report: "لم يتم إصدار كشف بعد"
+  };
+
+  records.push(record);
+  saveRecords();
+
+  const oldBox = document.getElementById("open").querySelector(".box");
+  if (oldBox) {
+    oldBox.remove();
+  }
+
+  document.getElementById("open").insertAdjacentHTML("beforeend", `
+    <div class="box">
+      <h3>تم فتح الملف التجريبي بنجاح</h3>
+
+      <div class="info">
+        <div class="item">
+          <small>رقم الملف الطبي</small>
+          <strong>${record.id}</strong>
         </div>
-        <div class="receipt">
-          <strong>حالة الطلب:</strong> مكتمل تجريبيًا<br>
-          <strong>رمز مرجعي:</strong> RP-${randomDigits(6)}<br>
-          <small>لا يستخدم هذا الرقم لإجراء أو إثبات أمر صحي حقيقي.</small>
-        </div>`;
-      document.getElementById('result').classList.remove('hidden');
-      document.getElementById('searchFile').value = fileNumber;
-      document.getElementById('acceptance').value = acceptance;
-    });
 
-    document.getElementById('checkForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const fileNumber = document.getElementById('searchFile').value || '1' + randomDigits(11);
-      const acceptance = document.getElementById('acceptance').value || '2026' + randomDigits(8);
-      const examType = document.getElementById('examType').value;
-      const facility = document.getElementById('facility').value;
-
-      document.getElementById('result').innerHTML = `
-        <h3>نتيجة الكشف الطبي التجريبية</h3>
-        <div class="info-grid">
-          <div class="info"><small>رقم الملف الطبي</small><strong>${escapeHtml(fileNumber)}</strong></div>
-          <div class="info"><small>رقم القبول</small><strong>${escapeHtml(acceptance)}</strong></div>
-          <div class="info"><small>النتيجة</small><strong>لائق تجريبيًا</strong></div>
-          <div class="info"><small>نوع الكشف</small><strong>${escapeHtml(examType)}</strong></div>
-          <div class="info"><small>المرفق</small><strong>${escapeHtml(facility)}</strong></div>
-          <div class="info"><small>رقم التقرير</small><strong>MED-${randomDigits(10)}</strong></div>
+        <div class="item">
+          <small>رمز الملف الخاص بك</small>
+          <strong>${record.code}</strong>
         </div>
-        <div class="receipt">
-          النتيجة وعناصر التقرير منشأة عشوائيًا لأغراض الرول بلاي، وليست شهادة طبية حقيقية.
-        </div>`;
-      document.getElementById('result').classList.remove('hidden');
-    });
 
-    function escapeHtml(value) {
-      return String(value).replace(/[&<>"']/g, function (char) {
-        return {'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;'}[char];
-      });
+        <div class="item">
+          <small>حالة الطلب</small>
+          <strong>${record.status}</strong>
+        </div>
+      </div>
+
+      <p>احتفظ برقم الملف ورمز الملف للحجز أو عرض بيانات الملف لاحقًا.</p>
+    </div>
+  `);
+
+  document.getElementById("fileLookup").value = record.id;
+  document.getElementById("recordCode").value = record.code;
+  event.target.reset();
+});
+
+function lookupFile() {
+  const id = document.getElementById("fileLookup").value.trim();
+  const code = document.getElementById("recordCode").value.trim();
+
+  const record = records.find(item =>
+    item.id === id && item.code === code
+  );
+
+  const area = document.getElementById("lookupResult");
+
+  if (!record) {
+    area.innerHTML = `
+      <div class="box">
+        رقم الملف أو رمز الملف غير متطابقين.
+      </div>
+    `;
+    return;
+  }
+
+  area.innerHTML = `
+    <div class="box">
+      <h3>بيانات الملف للحجز</h3>
+
+      <div class="info">
+        <div class="item">
+          <small>رقم الملف</small>
+          <strong>${record.id}</strong>
+        </div>
+
+        <div class="item">
+          <small>رمز الملف</small>
+          <strong>${record.code}</strong>
+        </div>
+
+        <div class="item">
+          <small>الاسم</small>
+          <strong>${escapeHtml(record.name)}</strong>
+        </div>
+
+        <div class="item">
+          <small>العمر</small>
+          <strong>${escapeHtml(record.age)}</strong>
+        </div>
+
+        <div class="item">
+          <small>Roblox</small>
+          <strong>${escapeHtml(record.roblox)}</strong>
+        </div>
+
+        <div class="item">
+          <small>الوظيفة والرتبة</small>
+          <strong>${escapeHtml(record.job)} - ${escapeHtml(record.rank)}</strong>
+        </div>
+
+        <div class="item">
+          <small>حالة الكشف</small>
+          <strong>${escapeHtml(record.report)}</strong>
+        </div>
+      </div>
+
+      <p><b>سبب فتح الملف:</b> ${escapeHtml(record.reason)}</p>
+      <p>يمكن استخدام رقم الملف لحجز موعد تجريبي داخل نظام الرول بلاي.</p>
+    </div>
+  `;
+}
+
+function loginAdmin() {
+  const name = document.getElementById("adminName").value.trim();
+  const password = document.getElementById("adminPassword").value;
+
+  if (!name || password !== ADMIN_PASSWORD) {
+    alert("بيانات الدخول التجريبية غير صحيحة");
+    return;
+  }
+
+  sessionStorage.setItem("rp_admin", "1");
+
+  document.getElementById("adminLogin").classList.add("hidden");
+  document.getElementById("adminPanel").classList.remove("hidden");
+
+  document.getElementById("adminPassword").value = "";
+  renderAdmin();
+}
+
+function logoutAdmin() {
+  sessionStorage.removeItem("rp_admin");
+
+  document.getElementById("adminLogin").classList.remove("hidden");
+  document.getElementById("adminPanel").classList.add("hidden");
+
+  document.getElementById("adminName").value = "";
+  document.getElementById("adminPassword").value = "";
+}
+
+function renderAdmin() {
+  if (sessionStorage.getItem("rp_admin") !== "1") {
+    document.getElementById("adminLogin").classList.remove("hidden");
+    document.getElementById("adminPanel").classList.add("hidden");
+    return;
+  }
+
+  document.getElementById("adminLogin").classList.add("hidden");
+  document.getElementById("adminPanel").classList.remove("hidden");
+
+  let html = `
+    <table>
+      <thead>
+        <tr>
+          <th>رقم الملف</th>
+          <th>الرمز</th>
+          <th>الاسم</th>
+          <th>العمر</th>
+          <th>Roblox</th>
+          <th>الوظيفة</th>
+          <th>الرتبة</th>
+          <th>السبب</th>
+          <th>تقرير الكشف</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  records.forEach((record, index) => {
+    html += `
+      <tr>
+        <td>${record.id}</td>
+        <td>${record.code}</td>
+        <td>${escapeHtml(record.name)}</td>
+        <td>${escapeHtml(record.age)}</td>
+        <td>${escapeHtml(record.roblox)}</td>
+        <td>${escapeHtml(record.job)}</td>
+        <td>${escapeHtml(record.rank)}</td>
+        <td>${escapeHtml(record.reason)}</td>
+        <td>
+          <input
+            id="report-${index}"
+            value="${escapeHtml(record.report)}"
+            onchange="updateReport(${index}, this.value)"
+          >
+        </td>
+      </tr>
+    `;
+  });
+
+  html += `
+      </tbody>
+    </table>
+  `;
+
+  document.getElementById("adminRecords").innerHTML = html;
+}
+
+function updateReport(index, report) {
+  records[index].report = report;
+  saveRecords();
+}
+
+function downloadReports() {
+  if (sessionStorage.getItem("rp_admin") !== "1") {
+    alert("سجّل دخول الإدارة أولًا");
+    return;
+  }
+
+  if (!records.length) {
+    alert("لا توجد سجلات تجريبية للتنزيل");
+    return;
+  }
+
+  const columns = [
+    ["رقم الملف", "id"],
+    ["رمز الملف", "code"],
+    ["الاسم", "name"],
+    ["العمر", "age"],
+    ["اسم Roblox", "roblox"],
+    ["الوظيفة", "job"],
+    ["الرتبة", "rank"],
+    ["سبب فتح الملف", "reason"],
+    ["الحالة", "status"],
+    ["تقرير الكشف", "report"]
+  ];
+
+  function csvCell(value) {
+    let text = String(value ?? "");
+
+    if (/^[=+\-@]/.test(text)) {
+      text = "'" + text;
     }
-  </script>
+
+    return '"' + text.replace(/"/g, '""') + '"';
+  }
+
+  const rows = [
+    columns.map(column => csvCell(column[0])).join(","),
+    ...records.map(record =>
+      columns.map(column => csvCell(record[column[1]])).join(",")
+    )
+  ];
+
+  const csv = "\uFEFF" + rows.join("\r\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "تقارير-الكشف-الرول-بلاي.csv";
+  link.click();
+
+  URL.revokeObjectURL(url);
+}
+</script>
+
 </body>
 </html>
