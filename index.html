@@ -5,25 +5,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>نظام الملف الطبي - رول بلاي</title>
 <style>
-:root{--g:#087c55;--b:#edf5f2;--d:#20312c;--line:#d6e3df}
+:root{--green:#087c55;--bg:#edf5f2;--text:#20312c;--line:#d6e3df}
 *{box-sizing:border-box}
-body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--b);color:var(--d)}
-header{background:#fff;border-bottom:4px solid var(--g);padding:14px 20px}
-header h1{font-size:19px;margin:0}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text)}
+header{background:#fff;border-bottom:4px solid var(--green);padding:14px 20px}
+header h1{font-size:20px;margin:0}
 header p{margin:6px 0 0;color:#668078;font-size:12px}
 main{max-width:950px;margin:auto;padding:20px}
-.notice{background:#fff4c9;border:1px solid #e3cb70;border-radius:10px;padding:11px;margin-bottom:16px;font-size:13px}
 .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 4px 18px #0000000a}
 .tabs{display:flex;gap:8px;margin-bottom:16px}
 .tab{border:1px solid var(--line);background:#f7faf9;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer}
-.tab.active{background:var(--g);color:#fff}
+.tab.active{background:var(--green);color:#fff}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
 input,select,textarea{width:100%;border:1px solid #b8cbc5;border-radius:8px;padding:11px;font:inherit;background:#fff}
 textarea{min-height:90px;resize:vertical}
 .actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
 button{border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:bold;cursor:pointer}
-.primary{background:var(--g);color:#fff}
+.primary{background:var(--green);color:#fff}
 .secondary{background:#edf3f1}
 .hidden{display:none}
 .box{background:#edf8f3;border:1px solid #abd4c4;border-radius:9px;padding:14px;margin-top:14px}
@@ -34,6 +33,7 @@ button{border:0;border-radius:8px;padding:11px 16px;font:inherit;font-weight:bol
 table{width:100%;border-collapse:collapse}
 th,td{border:1px solid var(--line);padding:8px;text-align:right;font-size:13px}
 th{background:#f3f8f6}
+.disclaimer{background:#fff4c9;border:1px solid #dfbd54;border-radius:10px;padding:14px;color:#554400;font-size:13px;line-height:1.9;text-align:center;margin-top:16px}
 @media(max-width:650px){
   .grid,.info{grid-template-columns:1fr}
   .tabs{flex-direction:column}
@@ -41,110 +41,108 @@ th{background:#f3f8f6}
 }
 </style>
 </head>
-<body>
 
+<body>
 <header>
-  <h1>نظام الملف الطبي - المحاكاة الترفيهية</h1>
-  <p>الموقع وهمي بالكامل ولا يمثل وزارة أو جهة صحية حقيقية</p>
+  <h1>نظام الملف الطبي الافتراضي</h1>
+  <p>نظام ألعاب وتسلية للرول بلاي</p>
 </header>
 
 <main>
-  <div class="notice">
-    تنبيه: جميع البيانات والأرقام والرموز وهمية ويجب استخدامها للرول بلاي فقط.
-  </div>
-
   <div class="card">
     <div class="tabs">
-      <button class="tab active" onclick="showTab('open')">فتح ملف طبي</button>
-      <button class="tab" onclick="showTab('check')">ملفي للكشف والحجز</button>
-      <button class="tab" onclick="showTab('admin')">إدارة تجريبية</button>
+      <button type="button" class="tab active" onclick="showTab('open')">فتح ملف طبي</button>
+      <button type="button" class="tab" onclick="showTab('check')">الكشف الطبي</button>
+      <button type="button" class="tab" onclick="showTab('admin')">لوحة الإدارة</button>
     </div>
 
     <section id="open">
       <form id="openForm">
         <div class="grid">
           <div>
-            <label>١ - الاسم بالكامل</label>
+            <label>الاسم بالكامل</label>
             <input id="fullName" required autocomplete="off">
           </div>
 
           <div>
-            <label>٢ - العمر</label>
+            <label>العمر</label>
             <input id="age" type="number" min="1" max="120" required>
           </div>
 
           <div>
-            <label>٣ - اسمك في Roblox</label>
+            <label>اسمك في Roblox</label>
             <input id="roblox" required autocomplete="off">
           </div>
 
           <div>
-            <label>٤ - الوظيفة</label>
+            <label>الوظيفة</label>
             <input id="job" required>
           </div>
 
           <div>
-            <label>٥ - الرتبة الوظيفية</label>
+            <label>الرتبة الوظيفية</label>
             <input id="rank" required>
           </div>
 
           <div>
-            <label>٦ - سبب فتح الملف</label>
+            <label>سبب فتح الملف</label>
             <textarea id="reason" required></textarea>
           </div>
         </div>
 
         <div class="actions">
-          <button type="submit" class="primary">تقديم طلب فتح الملف</button>
+          <button type="submit" class="primary">فتح الملف والحصول على الرقم</button>
           <button type="reset" class="secondary">مسح</button>
         </div>
       </form>
+
+      <div id="openResult"></div>
     </section>
 
     <section id="check" class="hidden">
       <div class="grid">
         <div>
           <label>رقم الملف الطبي</label>
-          <input id="fileLookup" inputmode="numeric">
+          <input id="fileLookup" inputmode="numeric" maxlength="12">
         </div>
 
         <div>
-          <label>رمز الملف الخاص بك</label>
+          <label>رمز الكشف الخاص بك</label>
           <input id="recordCode" autocomplete="off">
         </div>
       </div>
 
       <div class="actions">
-        <button type="button" class="primary" onclick="lookupFile()">عرض ملفي للحجز</button>
+        <button type="button" class="primary" onclick="lookupReport()">عرض الكشف الطبي</button>
       </div>
 
-      <div id="lookupResult"></div>
+      <div id="reportResult"></div>
     </section>
 
     <section id="admin" class="hidden">
       <div id="adminLogin">
         <div class="grid">
           <div>
-            <label>اسم الإداري التجريبي</label>
-            <input id="adminName">
+            <label>اسم الإداري</label>
+            <input id="adminName" autocomplete="off">
           </div>
 
           <div>
-            <label>الرمز الإداري التجريبي</label>
+            <label>رمز الإدارة</label>
             <input id="adminPassword" type="password">
           </div>
         </div>
 
         <div class="actions">
-          <button type="button" class="primary" onclick="loginAdmin()">دخول الإدارة</button>
+          <button type="button" class="primary" onclick="loginAdmin()">دخول</button>
         </div>
       </div>
 
       <div id="adminPanel" class="hidden">
-        <h3>لوحة الإدارة التجريبية</h3>
+        <h3>لوحة الإدارة - تقارير الكشف الطبي</h3>
 
         <div class="actions">
-          <button type="button" class="primary" onclick="downloadReports()">تنزيل تقارير الكشف</button>
+          <button type="button" class="primary" onclick="downloadReports()">تنزيل التقارير CSV</button>
           <button type="button" class="secondary" onclick="logoutAdmin()">تسجيل خروج</button>
         </div>
 
@@ -152,12 +150,16 @@ th{background:#f3f8f6}
       </div>
     </section>
   </div>
+
+  <div class="disclaimer">
+    هذا الموقع أو النموذج الإلكتروني لا يمت للعالم الواقعي أو المملكة العربية السعودية وحكومتها أو أي جهة رسمية بِصلة، وإنما هو يحاكي واقع إفتراضي من وحي الخيال وجميع محتوياته لأغراض اللعب والترفيه فقط، ونُخلي مسؤوليتنا بشكل تام في حال إستغلال هذا الموقع لأغراض إحتيالية، تشويهية، إنتحالية، عرضية، أو إستخدامه خارج إطار اللعب والمتعة والترفيه.
+  </div>
 </main>
 
 <script>
 const ADMIN_PASSWORD = "Abo3ks3305";
 
-let records = JSON.parse(sessionStorage.getItem("rp_medical_records") || "[]");
+let records = JSON.parse(sessionStorage.getItem("rpMedicalReports") || "[]");
 
 function showTab(id) {
   document.querySelectorAll(".tab").forEach((tab, index) => {
@@ -168,36 +170,32 @@ function showTab(id) {
     );
   });
 
-  ["open", "check", "admin"].forEach(section => {
+  ["open","check","admin"].forEach(section => {
     document.getElementById(section).classList.toggle("hidden", section !== id);
   });
 
-  if (id === "admin") {
-    renderAdmin();
-  }
+  if (id === "admin") renderAdmin();
 }
 
 function randomDigits(length) {
-  let result = "";
-
+  let output = "";
   for (let i = 0; i < length; i++) {
-    result += Math.floor(Math.random() * 10);
+    output += Math.floor(Math.random() * 10);
   }
-
-  return result;
+  return output;
 }
 
 function saveRecords() {
-  sessionStorage.setItem("rp_medical_records", JSON.stringify(records));
+  sessionStorage.setItem("rpMedicalReports", JSON.stringify(records));
 }
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, character => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;"
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
   })[character]);
 }
 
@@ -206,29 +204,26 @@ document.getElementById("openForm").addEventListener("submit", event => {
 
   const record = {
     id: randomDigits(12),
-    code: "RP-" + randomDigits(6),
+    code: "MED-" + randomDigits(6),
     name: document.getElementById("fullName").value.trim(),
     age: document.getElementById("age").value,
     roblox: document.getElementById("roblox").value.trim(),
     job: document.getElementById("job").value.trim(),
     rank: document.getElementById("rank").value.trim(),
     reason: document.getElementById("reason").value.trim(),
-    status: "ملف تجريبي مفتوح",
-    report: "لم يتم إصدار كشف بعد"
+    status: "قيد الانتظار",
+    result: "",
+    reportDate: "",
+    doctor: "",
+    medicalNotes: ""
   };
 
   records.push(record);
   saveRecords();
 
-  const oldBox = document.getElementById("open").querySelector(".box");
-  if (oldBox) {
-    oldBox.remove();
-  }
-
-  document.getElementById("open").insertAdjacentHTML("beforeend", `
+  document.getElementById("openResult").innerHTML = `
     <div class="box">
-      <h3>تم فتح الملف التجريبي بنجاح</h3>
-
+      <h3>تم فتح الملف الطبي بنجاح</h3>
       <div class="info">
         <div class="item">
           <small>رقم الملف الطبي</small>
@@ -236,39 +231,44 @@ document.getElementById("openForm").addEventListener("submit", event => {
         </div>
 
         <div class="item">
-          <small>رمز الملف الخاص بك</small>
+          <small>رمز الكشف</small>
           <strong>${record.code}</strong>
         </div>
 
         <div class="item">
-          <small>حالة الطلب</small>
+          <small>حالة الكشف</small>
           <strong>${record.status}</strong>
         </div>
       </div>
-
-      <p>احتفظ برقم الملف ورمز الملف للحجز أو عرض بيانات الملف لاحقًا.</p>
+      <p>أرسل رقم الملف ورمز الكشف للإدارة فقط عند الحاجة، وحفظهم للنظر في نتيجة الكشف لاحقًا.</p>
     </div>
-  `);
+  `;
 
   document.getElementById("fileLookup").value = record.id;
   document.getElementById("recordCode").value = record.code;
   event.target.reset();
 });
 
-function lookupFile() {
+function lookupReport() {
   const id = document.getElementById("fileLookup").value.trim();
   const code = document.getElementById("recordCode").value.trim();
-
-  const record = records.find(item =>
-    item.id === id && item.code === code
-  );
-
-  const area = document.getElementById("lookupResult");
+  const record = records.find(item => item.id === id && item.code === code);
+  const area = document.getElementById("reportResult");
 
   if (!record) {
     area.innerHTML = `
       <div class="box">
-        رقم الملف أو رمز الملف غير متطابقين.
+        رقم الملف أو رمز الكشف غير صحيح.
+      </div>
+    `;
+    return;
+  }
+
+  if (record.status !== "تم إصدار الكشف") {
+    area.innerHTML = `
+      <div class="box">
+        <h3>الكشف قيد التحضير</h3>
+        <p>لا توجد نتيجة كشف منشورة لهذا الملف حتى الآن.</p>
       </div>
     `;
     return;
@@ -276,7 +276,7 @@ function lookupFile() {
 
   area.innerHTML = `
     <div class="box">
-      <h3>بيانات الملف للحجز</h3>
+      <h3>تقرير الكشف الطبي</h3>
 
       <div class="info">
         <div class="item">
@@ -285,8 +285,18 @@ function lookupFile() {
         </div>
 
         <div class="item">
-          <small>رمز الملف</small>
-          <strong>${record.code}</strong>
+          <small>تاريخ الكشف</small>
+          <strong>${escapeHtml(record.reportDate)}</strong>
+        </div>
+
+        <div class="item">
+          <small>النتيجة</small>
+          <strong>${escapeHtml(record.result)}</strong>
+        </div>
+
+        <div class="item">
+          <small>الممرض التجريبي</small>
+          <strong>${escapeHtml(record.doctor)}</strong>
         </div>
 
         <div class="item">
@@ -295,28 +305,13 @@ function lookupFile() {
         </div>
 
         <div class="item">
-          <small>العمر</small>
-          <strong>${escapeHtml(record.age)}</strong>
-        </div>
-
-        <div class="item">
-          <small>Roblox</small>
-          <strong>${escapeHtml(record.roblox)}</strong>
-        </div>
-
-        <div class="item">
           <small>الوظيفة والرتبة</small>
           <strong>${escapeHtml(record.job)} - ${escapeHtml(record.rank)}</strong>
         </div>
-
-        <div class="item">
-          <small>حالة الكشف</small>
-          <strong>${escapeHtml(record.report)}</strong>
-        </div>
       </div>
 
-      <p><b>سبب فتح الملف:</b> ${escapeHtml(record.reason)}</p>
-      <p>يمكن استخدام رقم الملف لحجز موعد تجريبي داخل نظام الرول بلاي.</p>
+      <p><b>ملاحظات الكشف:</b></p>
+      <p>${escapeHtml(record.medicalNotes) || "لا توجد ملاحظات"}</p>
     </div>
   `;
 }
@@ -326,31 +321,24 @@ function loginAdmin() {
   const password = document.getElementById("adminPassword").value;
 
   if (!name || password !== ADMIN_PASSWORD) {
-    alert("بيانات الدخول التجريبية غير صحيحة");
+    alert("اسم الإداري أو رمز الدخول غير صحيح");
     return;
   }
 
-  sessionStorage.setItem("rp_admin", "1");
-
-  document.getElementById("adminLogin").classList.add("hidden");
-  document.getElementById("adminPanel").classList.remove("hidden");
-
+  sessionStorage.setItem("rpAdminLogged", "1");
   document.getElementById("adminPassword").value = "";
   renderAdmin();
 }
 
 function logoutAdmin() {
-  sessionStorage.removeItem("rp_admin");
-
+  sessionStorage.removeItem("rpAdminLogged");
   document.getElementById("adminLogin").classList.remove("hidden");
   document.getElementById("adminPanel").classList.add("hidden");
-
   document.getElementById("adminName").value = "";
-  document.getElementById("adminPassword").value = "";
 }
 
 function renderAdmin() {
-  if (sessionStorage.getItem("rp_admin") !== "1") {
+  if (sessionStorage.getItem("rpAdminLogged") !== "1") {
     document.getElementById("adminLogin").classList.remove("hidden");
     document.getElementById("adminPanel").classList.add("hidden");
     return;
@@ -367,11 +355,12 @@ function renderAdmin() {
           <th>الرمز</th>
           <th>الاسم</th>
           <th>العمر</th>
-          <th>Roblox</th>
-          <th>الوظيفة</th>
-          <th>الرتبة</th>
-          <th>السبب</th>
-          <th>تقرير الكشف</th>
+          <th>الوظيفة والرتبة</th>
+          <th>تاريخ الكشف</th>
+          <th>النتيجة</th>
+          <th>اسم الممرض</th>
+          <th>ملاحظات</th>
+          <th>حالة الكشف</th>
         </tr>
       </thead>
       <tbody>
@@ -384,66 +373,94 @@ function renderAdmin() {
         <td>${record.code}</td>
         <td>${escapeHtml(record.name)}</td>
         <td>${escapeHtml(record.age)}</td>
-        <td>${escapeHtml(record.roblox)}</td>
-        <td>${escapeHtml(record.job)}</td>
-        <td>${escapeHtml(record.rank)}</td>
-        <td>${escapeHtml(record.reason)}</td>
+        <td>${escapeHtml(record.job)} - ${escapeHtml(record.rank)}</td>
+
         <td>
           <input
-            id="report-${index}"
-            value="${escapeHtml(record.report)}"
-            onchange="updateReport(${index}, this.value)"
+            type="date"
+            value="${escapeHtml(record.reportDate)}"
+            onchange="updateRecord(${index}, 'reportDate', this.value)"
           >
+        </td>
+
+        <td>
+          <select onchange="updateRecord(${index}, 'result', this.value)">
+            <option value="">اختر النتيجة</option>
+            <option ${record.result === "لائق" ? "selected" : ""}>لائق</option>
+            <option ${record.result === "غير لائق" ? "selected" : ""}>غير لائق</option>
+            <option ${record.result === "يحتاج إعادة فحص" ? "selected" : ""}>يحتاج إعادة فحص</option>
+          </select>
+        </td>
+
+        <td>
+          <input
+            value="${escapeHtml(record.doctor)}"
+            onchange="updateRecord(${index}, 'doctor', this.value)"
+          >
+        </td>
+
+        <td>
+          <textarea
+            onchange="updateRecord(${index}, 'medicalNotes', this.value)"
+          >${escapeHtml(record.medicalNotes)}</textarea>
+        </td>
+
+        <td>
+          <select onchange="publishStatus(${index}, this.value)">
+            <option value="قيد الانتظار" ${record.status === "قيد الانتظار" ? "selected" : ""}>قيد الانتظار</option>
+            <option value="تم إصدار الكشف" ${record.status === "تم إصدار الكشف" ? "selected" : ""}>إرسال الكشف</option>
+          </select>
         </td>
       </tr>
     `;
   });
 
-  html += `
-      </tbody>
-    </table>
-  `;
-
+  html += `</tbody></table>`;
   document.getElementById("adminRecords").innerHTML = html;
 }
 
-function updateReport(index, report) {
-  records[index].report = report;
+function updateRecord(index, key, value) {
+  records[index][key] = value;
   saveRecords();
 }
 
+function publishStatus(index, status) {
+  records[index].status = status;
+  saveRecords();
+  renderAdmin();
+}
+
 function downloadReports() {
-  if (sessionStorage.getItem("rp_admin") !== "1") {
-    alert("سجّل دخول الإدارة أولًا");
+  if (sessionStorage.getItem("rpAdminLogged") !== "1") {
+    alert("يجب تسجيل دخول الإدارة أولًا");
     return;
   }
 
   if (!records.length) {
-    alert("لا توجد سجلات تجريبية للتنزيل");
+    alert("لا توجد ملفات للتنزيل");
     return;
   }
 
   const columns = [
-    ["رقم الملف", "id"],
-    ["رمز الملف", "code"],
-    ["الاسم", "name"],
-    ["العمر", "age"],
-    ["اسم Roblox", "roblox"],
-    ["الوظيفة", "job"],
-    ["الرتبة", "rank"],
-    ["سبب فتح الملف", "reason"],
-    ["الحالة", "status"],
-    ["تقرير الكشف", "report"]
+    ["رقم الملف","id"],
+    ["رمز الكشف","code"],
+    ["الاسم","name"],
+    ["العمر","age"],
+    ["Roblox","roblox"],
+    ["الوظيفة","job"],
+    ["الرتبة","rank"],
+    ["سبب فتح الملف","reason"],
+    ["تاريخ الكشف","reportDate"],
+    ["النتيجة","result"],
+    ["الممرض","doctor"],
+    ["الملاحظات","medicalNotes"],
+    ["الحالة","status"]
   ];
 
   function csvCell(value) {
     let text = String(value ?? "");
-
-    if (/^[=+\-@]/.test(text)) {
-      text = "'" + text;
-    }
-
-    return '"' + text.replace(/"/g, '""') + '"';
+    if (/^[=+\-@]/.test(text)) text = "'" + text;
+    return '"' + text.replace(/"/g,'""') + '"';
   }
 
   const rows = [
@@ -454,12 +471,12 @@ function downloadReports() {
   ];
 
   const csv = "\uFEFF" + rows.join("\r\n");
-  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const blob = new Blob([csv],{type:"text/csv;charset=utf-8"});
   const url = URL.createObjectURL(blob);
 
   const link = document.createElement("a");
   link.href = url;
-  link.download = "تقارير-الكشف-الرول-بلاي.csv";
+  link.download = "تقارير-الكشف-الطبي.csv";
   link.click();
 
   URL.revokeObjectURL(url);
