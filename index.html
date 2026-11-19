@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>بوابة ملفي الصحي</title>
+  <style>
+    :root {
+      --green: #087c55;
+      --green-2: #0b9b69;
+      --blue: #1c5d99;
+      --bg: #eef5f3;
+      --border: #d7e4e0;
+      --text: #1f2d29;
+      --danger: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    header {
+      background: white;
+      border-bottom: 4px solid var(--green);
+      box-shadow: 0 2px 10px #00000012;
+    }
+    .topbar {
+      max-width: 1050px;
+      margin: auto;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .seal {
+      width: 58px; height: 58px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--green); color: white;
+      border: 4px solid #d9eee6;
+      font-size: 25px; font-weight: bold;
+    }
+    .brand h1 { font-size: 20px; margin: 0; }
+    .brand p { margin: 4px 0 0; color: #64736e; font-size: 12px; }
+    .disclaimer {
+      background: #fff4cc;
+      color: #6b5200;
+      border: 1px solid #ead47d;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      max-width: 330px;
+    }
+    main {
+      max-width: 1050px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .hero {
+      background: linear-gradient(120deg, #087c55, #1c7d7a);
+      color: white;
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .hero h2 { margin: 0 0 8px; }
+    .hero p { margin: 0; opacity: .95; }
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 5px 20px #31594d10;
+      margin-top: 18px;
+    }
+    .tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+    .tab {
+      border: 1px solid var(--border);
+      background: #f7faf9;
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+      color: var(--text);
+      font-weight: bold;
+    }
+    .tab.active {
+      background: var(--green);
+      color: white;
+      border-color: var(--green);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 7px; }
+    input, select {
+      width: 100%;
+      border: 1px solid #bdcec8;
+      border-radius: 8px;
+      padding: 11px;
+      font: inherit;
+      background: white;
+    }
+    input:focus, select:focus { outline: 2px solid #aadaca; border-color: var(--green); }
+    .actions { display: flex; gap: 10px; margin-top: 16px; }
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 18px;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .primary { background: var(--green); color: white; }
+    .secondary { background: #edf3f1; color: #42534e; }
+    .hidden { display: none; }
+    .success {
+      margin-top: 16px;
+      border-radius: 10px;
+      background: #eaf7f1;
+      border: 1px solid #abd7c5;
+      padding: 16px;
+    }
+    .success h3 { margin: 0 0 10px; color: var(--green); }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .info {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .info small { display: block; color: #6c7a76; margin-bottom: 5px; }
+    .info strong { direction: ltr; unicode-bidi: isolate; }
+    .receipt {
+      margin-top: 12px;
+      border: 1px dashed #91aaa1;
+      background: #fbfdfc;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    footer {
+      text-align: center;
+      color: #73817d;
+      font-size: 12px;
+      padding: 20px;
+    }
+    @media (max-width: 700px) {
+      .topbar, .hero { align-items: flex-start; flex-direction: column; }
+      .grid, .info-grid { grid-template-columns: 1fr; }
+      .tabs { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="seal">ص</div>
+        <div>
+          <h1>بوابة الملف الصحي الترفيهية</h1>
+          <p>نظام محاكاة للرول بلاي — غير رسمي ولا يمثل جهة حكومية</p>
+        </div>
+      </div>
+      <div class="disclaimer">
+        تنبيه: هذا الموقع وهمي بالكامل لأغراض الترفيه فقط، ولا يجمع أو يخزن أي بيانات حقيقية.
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h2>الخدمات الصحية</h2>
+        <p>إنشاء ملف طبي تجريبي وطلب كشف طبي وهمي للطرد/اللعبة.</p>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:28px">✚</div>
+        <small>نسخة تجريبية</small>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="tabs">
+        <button class="tab active" type="button" onclick="showSection('create')">إنشاء ملف طبي</button>
+        <button class="tab" type="button" onclick="showSection('check')">الكشف الطبي</button>
+      </div>
+
+      <form id="createForm">
+        <div class="grid">
+          <div>
+            <label for="name">الاسم بالكامل للتجربة</label>
+            <input id="name" required placeholder="اسم وهمي فقط" autocomplete="off">
+          </div>
+          <div>
+            <label for="nationalId">الهوية الوطنية التجريبية</label>
+            <input id="nationalId" required inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 أرقام وهمية">
+          </div>
+          <div>
+            <label for="birthDate">تاريخ الميلاد التجريبي</label>
+            <input id="birthDate" type="date" required>
+          </div>
+          <div>
+            <label for="gender">الجنس</label>
+            <select id="gender" required>
+              <option value="">اختر</option>
+              <option>ذكر</option>
+              <option>أنثى</option>
+            </select>
+          </div>
+          <div>
+            <label for="phone">رقم الجوال التجريبي</label>
+            <input id="phone" inputmode="numeric" maxlength="10" pattern="05[0-9]{8}" placeholder="05XXXXXXXX">
+          </div>
+          <div>
+            <label for="blood">فصيلة الدم</label>
+            <select id="blood" required>
+              <option value="">اختر</option>
+              <option>A+</option><option>A-</option>
+              <option>B+</option><option>B-</option>
+              <option>O+</option><option>O-</option>
+              <option>AB+</option><option>AB-</option>
+              <option>غير معروف</option>
+            </select>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="primary" type="submit">إنشاء ملف تجريبي</button>
+          <button class="secondary" type="reset">مسح</button>
+        </div>
+      </form>
+
+      <form id="checkForm" class="hidden">
+        <div class="grid">
+          <div>
+            <label for="searchFile">رقم الملف الطبي</label>
+            <input id="searchFile" inputmode="numeric" maxlength="12" placeholder="مثال: 100234567890">
+          </div>
+          <div>
+            <label for="acceptance">رقم القبول</label>
+            <input id="acceptance" inputmode="numeric" maxlength="12" placeholder="مثال: 202600123456">
+          </div>
+          <div>
+            <label for="examType">نوع الكشف</label>
+            <select id="examType">
+              <option>كشف عام</option>
+              <option>كشف دوري</option>
+              <option>التأهيل المهني</option>
+              <option>كشف السفر</option>
+            </select>
+          </div>
+          <div>
+            <label for="facility">المرفق التجريبي</label>
+            <select id="facility">
+              <option>المركز الصحي الافتراضي</option>
+              <option>مستشفى رول بلاي المركزي</option>
+              <option>عيادة النجمة</option>
+            </select>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="primary" type="submit">عرض النتيجة</button>
+        </div>
+      </form>
+
+      <div id="result" class="success hidden" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    نظام محاكاة ترفيهية — جميع الأرقام والنتائج مولدة عشوائيًا ولا تعكس معلومات صحية حقيقية
+  </footer>
+
+  <script>
+    function showSection(section) {
+      document.querySelectorAll('.tab').forEach((tab, i) => {
+        tab.classList.toggle('active',
+          (section === 'create' && i === 0) || (section === 'check' && i === 1));
+      });
+      document.getElementById('createForm').classList.toggle('hidden', section !== 'create');
+      document.getElementById('checkForm').classList.toggle('hidden', section !== 'check');
+      document.getElementById('result').classList.add('hidden');
+    }
+
+    function randomDigits(length) {
+      let result = '';
+      for (let i = 0; i < length; i++) result += Math.floor(Math.random() * 10);
+      return result;
+    }
+
+    document.getElementById('createForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const fileNumber = '1' + randomDigits(11);
+      const acceptance = '2026' + randomDigits(8);
+
+      document.getElementById('result').innerHTML = `
+        <h3>تم إنشاء ملف تجريبي بنجاح</h3>
+        <div class="info-grid">
+          <div class="info"><small>اسم الملف التجريبي</small><strong>${escapeHtml(name)}</strong></div>
+          <div class="info"><small>رقم الملف الطبي</small><strong>${fileNumber}</strong></div>
+          <div class="info"><small>رقم القبول</small><strong>${acceptance}</strong></div>
+        </div>
+        <div class="receipt">
+          <strong>حالة الطلب:</strong> مكتمل تجريبيًا<br>
+          <strong>رمز مرجعي:</strong> RP-${randomDigits(6)}<br>
+          <small>لا يستخدم هذا الرقم لإجراء أو إثبات أمر صحي حقيقي.</small>
+        </div>`;
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('searchFile').value = fileNumber;
+      document.getElementById('acceptance').value = acceptance;
+    });
+
+    document.getElementById('checkForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const fileNumber = document.getElementById('searchFile').value || '1' + randomDigits(11);
+      const acceptance = document.getElementById('acceptance').value || '2026' + randomDigits(8);
+      const examType = document.getElementById('examType').value;
+      const facility = document.getElementById('facility').value;
+
+      document.getElementById('result').innerHTML = `
+        <h3>نتيجة الكشف الطبي التجريبية</h3>
+        <div class="info-grid">
+          <div class="info"><small>رقم الملف الطبي</small><strong>${escapeHtml(fileNumber)}</strong></div>
+          <div class="info"><small>رقم القبول</small><strong>${escapeHtml(acceptance)}</strong></div>
+          <div class="info"><small>النتيجة</small><strong>لائق تجريبيًا</strong></div>
+          <div class="info"><small>نوع الكشف</small><strong>${escapeHtml(examType)}</strong></div>
+          <div class="info"><small>المرفق</small><strong>${escapeHtml(facility)}</strong></div>
+          <div class="info"><small>رقم التقرير</small><strong>MED-${randomDigits(10)}</strong></div>
+        </div>
+        <div class="receipt">
+          النتيجة وعناصر التقرير منشأة عشوائيًا لأغراض الرول بلاي، وليست شهادة طبية حقيقية.
+        </div>`;
+      document.getElementById('result').classList.remove('hidden');
+    });
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, function (char) {
+        return {'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;'}[char];
+      });
+    }
+  </script>
+</body>
+</html>
